@@ -1,0 +1,5 @@
+language: python
+env:
+    - SPARK_VERSION=2.1.0 SPARK_PACKAGE_TYPE=hadoop2.7
+python:
+    - "3.5"
