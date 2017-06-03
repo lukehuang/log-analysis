@@ -1,0 +1,8 @@
+aiokafka==0.2.2
+colorama==0.3.9
+faker==0.7.15
+python-slugify==1.2.4
+tzlocal==1.4
+
+# we use master, because stable versions do not support Python 3
+-e git://github.com/Supervisor/supervisor.git#egg=supervisor

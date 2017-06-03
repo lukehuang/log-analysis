@@ -1,0 +1,10 @@
+{
+  "zookeeper": "localhost:2181",
+  "group": "consumer-group",
+  "topic": "test",
+  "sparkCluster": "local[2]",
+  "numThreads": 1,
+  "window": 10,
+  "windowLength": 120,
+  "slideInterval": 20
+}
