@@ -39,8 +39,8 @@ object Analyzer {
 
     val hits = ParseRecords.transform(lines)
     val popularPages = PopularPages.count(hits, config)
-    val results = new Kafka[(String, Long)]
-    popularPages.foreachRDD(results.save(_))
+    val popularPagesProducer = PopularPages.producer
+    popularPages.foreachRDD(popularPagesProducer.save(_))
 
     ssc.start()
     ssc.awaitTermination()

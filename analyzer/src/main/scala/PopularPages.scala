@@ -15,4 +15,6 @@ object PopularPages {
 
     popularPages
   }
+
+  def producer(implicit config: Config) = new Kafka[(String, Long)]
 }
