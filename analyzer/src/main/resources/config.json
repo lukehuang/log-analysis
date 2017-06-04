@@ -1,5 +1,5 @@
 {
-  "zookeeper": "localhost:2181",
+  "zookeeper": "34.251.80.1:2181",
   "group": "consumer-group",
   "topic": "test",
   "sparkCluster": "local[2]",

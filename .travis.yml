@@ -1,5 +1,5 @@
-language: python
-env:
-    - SPARK_VERSION=2.1.0 SPARK_PACKAGE_TYPE=hadoop2.7
+language: scala
+before_install:
+  - apt-get install python3.5
 python:
-    - "3.5"
+  - "3.5"

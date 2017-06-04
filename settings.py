@@ -13,6 +13,9 @@ KAFKA_SERVERS = 'localhost:9092'
 # Kafka topic
 KAFKA_TOPIC = 'test'
 
+# Kafka results topic
+KAFKA_RESULTS_TOPIC = 'results'
+
 try:
     from local_settings import *
 except ImportError as e:

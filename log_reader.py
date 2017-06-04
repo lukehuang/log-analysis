@@ -12,8 +12,7 @@ class LogStreamer:
         self.savepoint_file = savepoint_file
         self.log_file = log_file
 
-    @asyncio.coroutine
-    def produce(self):
+    async def produce(self):
         last = self.savepoint_file.read()
         if last:
             self.log_file.seek(int(last))
@@ -40,8 +39,8 @@ class LogStreamer:
                 stream data as fast as possible.
                 '''
 
-                future = yield from self.producer.send(KAFKA_TOPIC, log_entry.encode())
-                resp = yield from future
+                future = await self.producer.send(KAFKA_TOPIC, log_entry.encode())
+                resp = await future
                 print("Message produced: partition {}; offset {}".format(
                     resp.partition, resp.offset))
 

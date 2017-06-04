@@ -6,3 +6,5 @@ tzlocal==1.4
 
 # we use master, because stable versions do not support Python 3
 -e git://github.com/Supervisor/supervisor.git#egg=supervisor
+
+pytest==3.1.1
