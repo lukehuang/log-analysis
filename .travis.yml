@@ -1,9 +1,7 @@
 language: scala
   - 2.11.11
 script:
-  - sudo apt-get install python3
   - make build
   - make test
-before_install:
 python:
   - "3.5"
