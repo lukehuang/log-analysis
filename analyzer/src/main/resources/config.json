@@ -1,10 +1,12 @@
 {
-  "zookeeper": "34.251.80.1:2181",
+  "zookeeper": "34.251.80.13:2181",
+  "kafka": "34.251.80.13:9092",
   "group": "consumer-group",
   "topic": "test",
   "sparkCluster": "local[2]",
   "numThreads": 1,
   "window": 10,
   "windowLength": 120,
-  "slideInterval": 20
+  "slideInterval": 20,
+  "resultsTopic": "results"
 }
