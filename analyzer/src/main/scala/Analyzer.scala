@@ -13,7 +13,7 @@ object Analyzer {
     Logger.getLogger("org").setLevel(Level.OFF)
     Logger.getLogger("akka").setLevel(Level.OFF)
 
-    val config = ConfigFactory.load("config")
+    implicit val config = ConfigFactory.load("config")
 
     val sparkConf = new SparkConf().setAppName("LogAnalyzer").setMaster(config.getString("sparkCluster"))
     val ssc = new StreamingContext(sparkConf, Seconds(config.getInt("window")))
@@ -39,7 +39,8 @@ object Analyzer {
 
     val hits = ParseRecords.transform(lines)
     val popularPages = PopularPages.count(hits, config)
-    popularPages.foreachRDD(new Kafka[(String, Long)].save(_))
+    val results = new Kafka[(String, Long)]
+    popularPages.foreachRDD(results.save(_))
 
     ssc.start()
     ssc.awaitTermination()

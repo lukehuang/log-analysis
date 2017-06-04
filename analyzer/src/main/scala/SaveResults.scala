@@ -4,7 +4,6 @@ import java.util
 
 import com.typesafe.config.Config
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerConfig, ProducerRecord}
-import org.apache.spark.Partition
 import org.apache.spark.rdd.RDD
 
 trait Save[T] {
@@ -13,9 +12,9 @@ trait Save[T] {
     results.foreachPartition(partition => process(partition))
   }}
 
-abstract class SaveResults[T](implicit val config: Config) extends Save[T]
+abstract class SaveResults[T] extends Save[T] with Serializable
 
-class Kafka[T] extends SaveResults[T] {
+class Kafka[T](implicit val config: Config) extends SaveResults[T] {
   def process(partition: Iterator[T]): Unit = {
     val kafkaOpTopic = config.getString("resultsTopic")
     val props = new util.HashMap[String, Object]()
