@@ -1,8 +1,8 @@
 language: scala
   - 2.11.11
 script:
-  - apt-get -y remove python
-  - apt-get install python3.5
+  - sudo apt-get -y remove python
+  - sudo apt-get install python3.5
   - make build
   - make test
 python:
