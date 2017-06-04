@@ -1,5 +1,4 @@
 language: scala
 before_install:
-  - apt-get install python3.5
 python:
   - "3.5"
