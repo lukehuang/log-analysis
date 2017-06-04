@@ -3,6 +3,7 @@ build:
 
 test:
 	python3 -m pytest tests
+	cd analyzer; sbt test
 
 clean:
 	echo "0">save.tmp
