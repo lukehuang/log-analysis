@@ -1,7 +1,7 @@
 language: scala
   - 2.11.11
-script:
+before_script:
+  - sudo apt-get install python3-pip
   - make build
+script:
   - make test
-python:
-  - "3.5"
